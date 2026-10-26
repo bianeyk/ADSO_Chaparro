@@ -1,0 +1,494 @@
+<!--
+  Proyecto: 100 proyectos JS · 01 - Tinder Swipe
+  Autor: Carlos Chaparro
+  Descripción:
+  Este proyecto simula la funcionalidad de "Swipe" de Tinder, permitiendo arrastrar tarjetas de usuarios hacia la izquierda o derecha para rechazar o aceptar. 
+  Adicionalmente, utiliza botones personalizados con distintas acciones que muestran mensajes en la consola cuando se hacen clic en ellos.
+  Todos los comentarios y documentación están en español.
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta name="Author" content="Carlos Chaparro">
+  <meta name="keywords" content="Adso, js, Modal">
+  <title>Tinder con variables</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<title>100 proyectos JS · 01 - Tinder Swipe</title>
+<div class="shadow">
+<main>
+  <section>
+    <div class="white-bkg"></div>
+    <header>
+      <img src="./tinder-logo.webp" alt="Tinder Logo" />
+    </header>
+
+    <div class="cards">
+      <article>
+        <img src="./photos/2.webp" alt="Álex, brown hair man, 25 years old" />
+        <h2>Álex <span>25</span></h2>
+        <div class="choice nope">NOPE</div>
+        <div class="choice like">LIKE</div>
+      </article>
+
+      <article>
+        <img src="./photos/1.webp" alt="Leila, redhead, 25 years old" />
+        <h2>Leila <span>27</span></h2>
+        <div class="choice nope">NOPE</div>
+        <div class="choice like">LIKE</div>
+      </article>
+
+      <span>
+        No hay más personas cerca de ti...<br />
+        Vuelve a intentarlo más tarde
+      </span>
+    </div>
+
+    <footer>
+      <!-- Botones para distintas acciones de la app -->
+      <button class="is-undo" aria-label="undo"></button>
+      <button class="is-remove is-big" aria-label="remove"></button>
+      <button class="is-star" aria-label="star"></button>
+      <button class="is-fav is-big" aria-label="fav"></button>
+      <button class="is-zap" aria-label="zap"></button>
+    </footer>
+  </section>
+</main>
+</div>
+<style>
+  /* 
+    Reset y tipografía base 
+  */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    user-select: none;
+    background: #e5e5e5;
+  }
+  .white-bkg {
+    position: absolute;
+    background: #f6f6f6;
+    inset: 0;
+    z-index: -10;
+  }
+  .shadow{
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+  }
+  main {
+    background: url('./iphone.webp') no-repeat;
+    background-size: contain;
+    width: 320px;
+    height: 640px;
+    display: flex;
+    position: relative;
+  }
+
+  section {
+    width: 100%;
+    border-radius: 32px;
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    padding: 16px 6px;
+    margin: 24px;
+  }
+
+  header {
+    display: flex;
+    justify-content: start;
+    padding-left: 1rem;
+  }
+  header img {
+    width: 24px;
+    height: 24px;
+  }
+
+  footer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    padding: 0 24px;
+    justify-content: center;
+    align-items: center;
+  }
+  footer button {
+    background: url('./tinder-icons.webp') no-repeat;
+    background-position: 0px 0px;
+    background-size: 175px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    transition: scale .3s ease;
+  }
+  footer button:hover {
+    scale: 1.4;
+  }
+  footer button.is-big {
+    background-size: 250px;
+    width: 48px;
+    height: 48px;
+  }
+  footer button.is-undo {
+    background-position: -140px 0;
+  }
+  footer button.is-remove {
+    background-position: -150px 0;
+  }
+  footer button.is-fav {
+    background-position: -50px 0;
+  }
+  footer button.is-star {
+    background-position: -70px 0px;
+  }
+
+  .cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .cards > span {
+    display: grid;
+    place-content: center;
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+    height: 100%;
+    z-index: -1;
+  }
+  .cards article {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    cursor: grab;
+    overflow: hidden;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: transform .3s ease;
+  }
+  .cards article.go-left {
+    transform: translateX(-150%) rotate(-30deg) !important;
+    transition: transform .3s ease, rotate .3s ease;
+  }
+  .cards article.go-right {
+    transform: translateX(150%) rotate(30deg) !important;
+    transition: transform .3s ease, rotate .3s ease;
+  }
+  .cards article.reset {
+    transition: transform .3s ease;
+    transform: translateX(0) !important;
+  }
+  .cards article .choice {
+    border-radius: 8px;
+    color: black;
+    border: 4px solid;
+    z-index: 9999;
+    position: absolute;
+    top: 32px;
+    right: 16px;
+    opacity: 0;
+    padding: 4px 8px;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    width: fit-content;
+  }
+  .cards article .choice.nope {
+    border-color: #ff6e63;
+    color: #ff6e63;
+    transform: rotate(30deg);
+  }
+  .cards article .choice.like {
+    border-color: #63ff68;
+    color: #63ff68;
+    left: 16px;
+    transform: rotate(-30deg);
+  }
+  .cards article img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cards article h2 {
+    color: white;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: last baseline;
+    height: 100%;
+    width: 100%;
+    padding: 16px;
+    z-index: 3;
+    background: linear-gradient(to top, #00000088 20%, transparent 40%);
+  }
+  .cards article span {
+    margin-left: 6px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+</style>
+
+<script>
+  /**
+   * Umbral para decidir si una carta debe ser desplazada (match/no match)
+   * @const DECISION_THRESHOLD {number}
+   */
+  const DECISION_THRESHOLD = 75
+
+  // Bandera para evitar múltiples animaciones simultáneas
+  let isAnimating = false
+
+  // Distancia movida en el eje X al arrastrar una carta
+  let pullDeltaX = 0
+
+  // Pila de cartas eliminadas para "undo"
+  let removedCardsStack = []
+
+  /**
+   * Inicia la funcionalidad de arrastre de la carta
+   * @param {Event} event - Evento del mouse o touch
+   */
+  function startDrag(event) {
+    if (isAnimating) return
+
+    // Obtenemos el elemento 'article' (carta) más cercano al target
+    const actualCard = event.target.closest('article')
+    if (!actualCard) return
+
+    // Posición inicial del mouse o touch
+    const startX = event.pageX ?? event.touches[0].pageX
+
+    // Asigna los listeners de movimiento y fin
+    document.addEventListener('mousemove', onMove)
+    document.addEventListener('mouseup', onEnd)
+
+    document.addEventListener('touchmove', onMove, { passive: true })
+    document.addEventListener('touchend', onEnd, { passive: true })
+
+    /**
+     * Maneja el movimiento del mouse/touch
+     * @param {Event} event 
+     */
+    function onMove(event) {
+      // Posición actual del mouse o touch
+      const currentX = event.pageX ?? event.touches[0].pageX
+
+      // Calcula la distancia movida en X
+      pullDeltaX = currentX - startX
+
+      if (pullDeltaX === 0) return
+
+      // Activa la bandera de animación
+      isAnimating = true
+
+      // Calcula el grado de rotación en base a la distancia
+      const deg = pullDeltaX / 14
+
+      // Aplica transformación a la carta
+      actualCard.style.transform = `translateX(${pullDeltaX}px) rotate(${deg}deg)`
+
+      // Cambia el cursor a "grabbing"
+      actualCard.style.cursor = 'grabbing'
+
+      // Muestra la indicación visual (LIKE o NOPE)
+      const opacity = Math.abs(pullDeltaX) / 100
+      const isRight = pullDeltaX > 0
+
+      const choiceEl = isRight
+        ? actualCard.querySelector('.choice.like')
+        : actualCard.querySelector('.choice.nope')
+
+      if (choiceEl) choiceEl.style.opacity = opacity
+    }
+
+    /**
+     * Finaliza el arrastre de la carta y toma la decisión (match/no match o reset)
+     * @param {Event} event 
+     */
+    function onEnd(event) {
+      // Remueve los event listeners
+      document.removeEventListener('mousemove', onMove)
+      document.removeEventListener('mouseup', onEnd)
+
+      document.removeEventListener('touchmove', onMove)
+      document.removeEventListener('touchend', onEnd)
+
+      // Determina si se tomó una decisión (umbral superado)
+      const decisionMade = Math.abs(pullDeltaX) >= DECISION_THRESHOLD
+
+      if (decisionMade) {
+        const goRight = pullDeltaX >= 0
+
+        // Guarda la carta eliminada para "undo"
+        removedCardsStack.push({
+          card: actualCard,
+          parent: actualCard.parentNode,
+          next: actualCard.nextSibling
+        });
+
+        // Añade la clase correspondiente para animar la carta
+        actualCard.classList.add(goRight ? 'go-right' : 'go-left')
+        actualCard.addEventListener('transitionend', () => {
+          actualCard.remove()
+        }, { once: true });
+      } else {
+        actualCard.classList.add('reset')
+        actualCard.classList.remove('go-right', 'go-left')
+
+        actualCard.querySelectorAll('.choice').forEach(choice => {
+          choice.style.opacity = 0
+        })
+      }
+
+      // Cuando termina la transición, resetea estilos, banderas y opacidad
+      actualCard.addEventListener('transitionend', () => {
+        actualCard.removeAttribute('style')
+        actualCard.classList.remove('reset')
+
+        pullDeltaX = 0
+        isAnimating = false
+      }, { once: true });
+
+      actualCard
+        .querySelectorAll(".choice")
+        .forEach((el) => (el.style.opacity = 0));
+    }
+  }
+
+  // Añade listeners para arrastrar la carta (mouse/touch)
+  document.addEventListener('mousedown', startDrag)
+  document.addEventListener('touchstart', startDrag, { passive: true })
+
+
+  /**
+   * Botones funcionales: undo, remove, fav, star
+   */
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const cardsContainer = document.querySelector('.cards');
+
+    // Botón flecha hacia atrás (deshacer)
+    const btnUndo = document.querySelector('button.is-undo')
+    if (btnUndo) {
+      btnUndo.addEventListener('click', function () {
+        // Trae la última carta eliminada (del stack)
+        const last = removedCardsStack.pop();
+        if (last && last.card) {
+          // Quita clases de animación
+          last.card.classList.remove('go-left', 'go-right', 'reset');
+          last.card.removeAttribute('style');
+          // Reinicia choices
+          last.card.querySelectorAll('.choice').forEach(choice => choice.style.opacity = 0);
+          // Inserta la carta nuevamente en el DOM en su posición original
+          if (last.next) {
+            last.parent.insertBefore(last.card, last.next);
+          } else {
+            last.parent.appendChild(last.card);
+          }
+        }
+      })
+    }
+
+    // Botón cerrar (quitar todas las fotos del DOM)
+    const btnRemove = document.querySelector('button.is-remove')
+    if (btnRemove) {
+      btnRemove.addEventListener('click', function () {
+        const allCards = cardsContainer.querySelectorAll('article');
+        // Recorre todas las cartas y las elimina
+        allCards.forEach(card => {
+          removedCardsStack.push({
+            card: card,
+            parent: card.parentNode,
+            next: card.nextSibling
+          });
+          card.classList.add('go-left');
+          card.addEventListener('transitionend', () => {
+            card.remove();
+          }, { once: true });
+        });
+      })
+    }
+
+    // Botón estrella azul (super match, mostrar mensaje de like en el DOM pero no quitar carta, y log en consola)
+    const btnStar = document.querySelector('button.is-star')
+    if (btnStar) {
+      btnStar.addEventListener('click', function () {
+        console.log('super match');
+        // Mostramos "LIKE" visualmente en la carta superior sin remover
+        const allCards = cardsContainer.querySelectorAll('article');
+        if (allCards.length) {
+          const topCard = allCards[allCards.length - 1];
+          const likeEl = topCard.querySelector('.choice.like');
+          if (likeEl) {
+            likeEl.style.opacity = 1;
+            setTimeout(() => {
+              likeEl.style.opacity = 0;
+            }, 800);
+          }
+        }
+      })
+    }
+
+    // Botón corazón (match normal)
+    const btnFav = document.querySelector('button.is-fav')
+    if (btnFav) {
+      btnFav.addEventListener('click', function () {
+        const allCards = cardsContainer.querySelectorAll('article');
+        if (allCards.length) {
+          const card = allCards[allCards.length - 1];
+          const likeEl = card.querySelector('.choice.like');
+          if (likeEl) {
+            likeEl.style.opacity = 1;
+            // Breve efecto visual y luego ocultar
+            setTimeout(() => {
+              likeEl.style.opacity = 0;
+            }, 700);
+
+            // También podrías mover la carta a la derecha como si diera like
+            removedCardsStack.push({
+              card: card,
+              parent: card.parentNode,
+              next: card.nextSibling
+            });
+            setTimeout(() => {
+              card.classList.add('go-right');
+              card.addEventListener('transitionend', () => {
+                card.remove();
+              }, { once: true });
+            }, 350);
+          }
+        }
+      })
+    }
+
+    // Botón rayo morado (super boost)
+    const btnZap = document.querySelector('button.is-zap')
+    if (btnZap) {
+      btnZap.addEventListener('click', function () {
+        console.log('super boot')
+      })
+    }
+  })
+</script>
+</body>
+</html>
