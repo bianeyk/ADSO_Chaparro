@@ -1,0 +1,236 @@
+/* ==========================================
+   RESET Y TIPOGRAFÍA BASE
+   ========================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  user-select: none;
+  background: #e5e5e5;
+}
+
+/* ==========================================
+   ESTRUCTURA PRINCIPAL (IPHONE MOCKUP)
+   ========================================== */
+.shadow {
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+}
+
+main {
+  background: url('./iphone.webp') no-repeat;
+  background-size: contain;
+  width: 320px;
+  height: 640px;
+  display: flex;
+  position: relative;
+}
+
+section {
+  width: 100%;
+  border-radius: 32px;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  padding: 16px 6px;
+  margin: 24px;
+}
+
+.white-bkg {
+  position: absolute;
+  background: #f6f6f6;
+  inset: 0;
+  z-index: -10;
+}
+
+header {
+  display: flex;
+  justify-content: start;
+  padding-left: 1rem;
+}
+
+header img {
+  width: 24px;
+  height: 24px;
+}
+
+/* ==========================================
+   CONTENEDOR DE TARJETAS
+   ========================================== */
+.cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.cards .no-more-cards {
+  display: grid;
+  place-content: center;
+  color: #777;
+  font-size: 14px;
+  text-align: center;
+  height: 100%;
+  z-index: -1;
+}
+
+.cards article {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  cursor: grab;
+  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: transform .3s ease;
+}
+
+.cards article img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================
+   INFORMACIÓN Y TEXTOS DE TARJETA
+   ========================================== */
+.cards article .info-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  color: white;
+}
+
+.cards article .info-container h2 {
+  font-size: 24px;
+}
+
+.cards article .info-container h2 span {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.cards article .info-container h3 {
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 4px;
+}
+
+/* ==========================================
+   EFECTOS DE SWIPE (ANIMACIONES Y FEEDBACK)
+   ========================================== */
+.cards article.go-left {
+  transform: translateX(-150%) rotate(-30deg) !important;
+  transition: transform .3s ease, rotate .3s ease;
+}
+
+.cards article.go-right {
+  transform: translateX(150%) rotate(30deg) !important;
+  transition: transform .3s ease, rotate .3s ease;
+}
+
+.cards article.reset {
+  transition: transform .3s ease;
+  transform: translateX(0) !important;
+}
+
+.cards article .choice {
+  border-radius: 8px;
+  color: black;
+  border: 4px solid;
+  z-index: 9999;
+  position: absolute;
+  top: 32px;
+  right: 16px;
+  opacity: 0;
+  padding: 4px 8px;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  width: fit-content;
+  transition: opacity .15s ease;
+}
+
+.cards article .choice.nope {
+  border-color: #ff6e63;
+  color: #ff6e63;
+  transform: rotate(30deg);
+}
+
+.cards article .choice.like {
+  border-color: #63ff68;
+  color: #63ff68;
+  left: 16px;
+  transform: rotate(-30deg);
+}
+
+/* ==========================================
+   BOTONES DE ACCIÓN (FOOTER)
+   ========================================== */
+footer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  padding: 0 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+footer button {
+  background: url('./tinder-icons.webp') no-repeat;
+  background-size: 175px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+
+footer button:hover {
+  transform: scale(1.15);
+}
+
+footer button.is-big {
+  background-size: 250px;
+  width: 48px;
+  height: 48px;
+}
+
+/* Ajustes de posiciones del Sprite de íconos */
+footer button.is-undo {
+  background-position: -140px 0;
+}
+
+footer button.is-remove {
+  background-position: 0px 0px;
+}
+
+footer button.is-star {
+  background-position: -70px 0px;
+}
+
+footer button.is-fav {
+  background-position: -50px 0px;
+}
+
+footer button.is-zap {
+  background-position: -105px 0px;
+}

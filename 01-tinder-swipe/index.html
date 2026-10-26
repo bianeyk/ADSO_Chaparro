@@ -1,0 +1,98 @@
+<!--
+  Proyecto: 100 proyectos JS · 01 - Tinder Swipe
+  Autor: Bianey cuy
+  Descripción:
+  Este proyecto simula la funcionalidad de "Swipe" de Tinder, permitiendo arrastrar tarjetas de usuarios hacia la izquierda o derecha para rechazar o aceptar. 
+  Adicionalmente, utiliza botones personalizados con distintas acciones que muestran mensajes en la consola cuando se hacen clic en ellos.
+  Todos los comentarios y documentación están en español.
+-->
+
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="Bianey Cuy">
+  <meta name="keywords" content="Adso, js, Modal">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100 proyectos JS · 01 - Tinder Swipe</title>
+  <!-- Enlace al archivo CSS externo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="shadow">
+    <main>
+      <section>
+        <div class="white-bkg"></div>
+        
+        <header>
+          <img src="./tinder-logo.webp" alt="Tinder Logo" />
+        </header>
+
+        <div class="cards">
+          <!-- Tarjeta: Álex -->
+          <article>
+            <img src="./photos/2.webp" alt="Álex, brown hair man, 25 years old" />
+            <div class="info-container">
+              <h2>Álex <span>25</span></h2>
+              <h3>Alex es un joven enérgico de 25 años que destaca por su imponente físico atlético y su profunda conexión con la naturaleza.</h3>
+            </div>
+            <div class="choice nope">NOPE</div>
+            <div class="choice like">LIKE</div>
+          </article>
+
+          <!-- Tarjeta: Leila -->
+          <article>
+            <img src="./photos/1.webp" alt="Leila, redhead, 25 years old" />
+            <div class="info-container">
+              <h2>Leila <span>27</span></h2>
+              <h3>Leila es una joven fascinante de 27 años Su gran pasión es viajar, explorar nuevas culturas y perderse por los rincones del mundo.</h3>
+            </div>
+            <div class="choice nope">NOPE</div>
+            <div class="choice like">LIKE</div>
+          </article>
+
+          <!-- Tarjeta: Diana -->
+          <article>
+            <img src="./photos/3.webp" alt="Leila, redhead, 25 years old" />
+            <div class="info-container">
+              <h2>Diana <span>29</span></h2>
+              <h3>Diana es una psicóloga de 29 años que transmite una profunda sensación de calma, empatía y madurez.</h3>
+            </div>
+            <div class="choice nope">NOPE</div>
+            <div class="choice like">LIKE</div>
+          </article>
+
+          <!-- Tarjeta: Diego -->
+          <article>
+            <img src="./photos/4.webp" alt="Diego, 30 years old" />
+            <div class="info-container">
+              <h2>Diego <span>30</span></h2>
+              <h3>Diego es un hombre de 30 años con una presencia física equilibrada y una energía dinámica que refleja su pasión por la enseñanza. Con una estatura de 1,78 metros.</h3>
+            </div>
+            <div class="choice nope">NOPE</div>
+            <div class="choice like">LIKE</div>
+          </article>
+
+          <!-- Estado sin tarjetas -->
+          <span class="no-more-cards">
+            No hay más personas cerca de ti...<br />
+            Vuelve a intentarlo más tarde
+          </span>
+        </div>
+
+        <footer>
+          <button class="is-undo" aria-label="undo"></button>
+          <button class="is-remove is-big" aria-label="remove"></button>
+          <button class="is-star" aria-label="star"></button>
+          <button class="is-fav is-big" aria-label="fav"></button>
+          <button class="is-zap" aria-label="zap"></button>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script> 
+
+</html>
