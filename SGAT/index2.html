@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SGAT.diseñada para centralizar, automatizar y optimizar los procesos administrativos, operativos y comerciales">
+  <title>SGAT</title>
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Archivo:wght@500;700&display=swap" rel="stylesheet">
+
+  <link href="css/estilo.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- ============ NAVEGACIÓN ============ -->
+<header class="site-header" id="inicio">
+  <nav class="nav container" aria-label="Navegación principal">
+    <a class="nav-brand" href="#inicio">SGAT<span class="nav-dot">.</span></a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#problematica">Problemática</a></li>
+      <li><a href="#justificacion">Justificación</a></li>
+       <li><a href="#modulos">Módulos</a></li>
+      <li><a href="#metodologia">Metodología</a></li>
+      <li><a href="#roles">Roles de Usuario</a></li>
+      <li><a href="#noticias">Actualizaciones</a></li>
+      <li><a href="#luke-computadores">Sobre la Empresa</a></li>
+
+    </ul>
+  </nav>
+</header>
+
+<!-- ============ HERO con entorno tecnológico ============ -->
+<section class="hero">
+  <!-- Mantiene el canvas por si tu JS genera partículas o nodos de red en lugar de mariposas -->
+  <canvas id="butterflies" aria-hidden="true"></canvas>
+
+  <div class="hero-content container">
+    <p class="eyebrow reveal">Caso de Estudio: LUKE COMPUTADORES</p>
+    <h1 class="hero-title reveal">Sistema Gestor de <em>Activos Tecnológicos</em></h1>
+    <p class="hero-sub reveal">
+      Una plataforma informática integral diseñada para centralizar, automatizar y optimizar 
+      los procesos administrativos, operativos y comerciales del sector TIC.
+    </p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary" href="#problematica">Ver la Problemática</a>
+      <a class="btn btn-ghost" href="#modulos">Explorar Módulos</a>
+    </div>
+  </div>
+
+  <div class="hero-stats container">
+    <div class="stat reveal"><span class="stat-num" data-count="3">0</span><span class="stat-label">Módulos Integrados</span></div>
+    <div class="stat reveal"><span class="stat-num" data-count="100">0</span><span class="stat-label">% Información Centralizada</span></div>
+    <div class="stat reveal"><span class="stat-num" data-count="0">0</span><span class="stat-label">Errores Manuales</span></div>
+  </div>
+</section>
+
+<main>
+
+ <!-- ============ PROBLEMÁTICA ============ -->
+  <section class="section" id="problematica">
+    <div class="container grid grid-2">
+
+      <article class="bio-text reveal">
+        <p class="eyebrow">Definición de la problemática</p>
+        <h2>Dificultades en la Gestión TIC</h2>
+        <p>
+          Las empresas dedicadas a la reparación de equipos tecnológicos y la venta de insumos TIC enfrentan 
+          actualmente diversas dificultades operativas y administrativas. La falta de una herramienta digital integral 
+          para el registro de clientes, ventas y control de inventario afecta directamente la eficiencia interna y la 
+          calidad del servicio.
+        </p>
+        <p>
+          En la mayoría de los casos, los registros se realizan de forma manual mediante documentos físicos o planillas dispersas. 
+          Esta situación conlleva a pérdidas de información, duplicidad de datos y errores críticos en el seguimiento de los 
+          equipos en proceso de soporte técnico.
+        </p>
+        <p>
+          Asimismo, la falta de un control estructurado de proveedores e insumos limita la trazabilidad de los materiales, 
+          complicando la gestión de stock. Esto repercute negativamente en la capacidad de respuesta oportuna ante las solicitudes 
+          de garantía o reclamos por parte de los clientes.
+        </p>
+        <p>
+          Finalmente, la ausencia de roles definidos impide establecer una jerarquía clara de responsabilidades, traduciéndose 
+          en una menor eficiencia operativa y en dificultades para supervisar las operaciones del negocio en tiempo real.
+        </p>
+      </article>
+
+      <figure class="bio-figure reveal">
+        <div class="bio-frame">
+          <img src="sgat-preview.jpg" alt="Interfaz de usuario del Sistema SGAT"
+               onerror="this.closest('.bio-frame').classList.add('no-photo'); this.remove();">
+          <div class="bio-fallback" aria-hidden="true">
+            <span class="bio-initials">SGAT</span>
+          </div>
+        </div>
+        <figcaption>Automatización y control absoluto de inventarios y reparaciones.</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- ============ JUSTIFICACIÓN / CRONOLOGÍA DE DESARROLLO ============ -->
+  <section class="section section-alt" id="justificacion">
+    <div class="container">
+      <p class="eyebrow reveal">Justificación del Proyecto</p>
+      <h2 class="reveal">¿Por qué implementar SGAT?</h2>
+
+      <ol class="timeline">
+        <li class="timeline-item reveal">
+          <span class="timeline-year">Control</span>
+          <h3>Centralización de Activos</h3>
+          <p>Sustituye la gestión manual y las herramientas dispersas por un repositorio unificado que mitiga los retrasos operativos.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">Evidencia</span>
+          <h3>Soporte Investigativo</h3>
+          <p>Estudios de Romero y Cedeño (2023) demuestran que la automatización de procesos mejora la disponibilidad de la información estratégica.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">Eficiencia</span>
+          <h3>Metodología y Rendimiento</h3>
+          <p>La adopción de soluciones de software estructuradas reduce los tiempos de registro y eleva drásticamente el nivel de servicio al cliente.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <span class="timeline-year">Trazabilidad</span>
+          <h3>Decisiones Estratégicas</h3>
+          <p>SGAT permite un seguimiento continuo del ciclo de vida de los equipos, optimizando los recursos de las MiPymes tecnológicas.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+   <!-- ============ OBJETIVOS Y MÓDULOS ============ -->
+  <section class="section" id="modulos"> <!-- CAMBIADO AQUÍ A id="modulos" -->
+    <div class="container">
+      <p class="eyebrow reveal">Estructura del Proyecto</p>
+      <h2 class="reveal">Módulos del Sistema Integral</h2>
+      <p class="section-intro reveal">Módulos funcionales diseñados para resolver cada uno de los requerimientos identificados en el ciclo de vida del software.</p>
+
+      <div class="grid cards-grid">
+
+        <article class="card reveal">
+          <span class="card-year">01</span>
+          <h3>Módulo Administrativo</h3>
+          <p>Gestión centralizada de proveedores, bases de datos de clientes y control estructurado de insumos tecnológicos.</p>
+          <a class="card-link" href="#modulos">Ver requerimientos →</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-year">02</span>
+          <h3>Módulo Operativo</h3>
+          <p>Control y seguimiento de equipos en proceso de reparación, plazos de entrega, órdenes técnicas y estados en tiempo real.</p>
+          <a class="card-link" href="#modulos">Ver requerimientos →</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-year">03</span>
+          <h3>Módulo Comercial</h3>
+          <p>Automatización de procesos de facturación, registro de ventas de productos TIC y manejo inteligente de niveles de stock.</p>
+          <a class="card-link" href="#modulos">Ver requerimientos →</a>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-year">04</span>
+          <h3>Seguridad y Roles</h3>
+          <p>Plataforma robusta con accesos y privilegios diferenciados para perfiles de Administrador, Gerente y Técnico.</p>
+          <a class="card-link" href="#modulos">Ver requerimientos →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ DESTACADO METODOLÓGICO ============ -->
+  <section class="section quote-band" style="background: var(--tech-dark); color: #ffffff; text-align: center; border-block: 1px solid #1e293b;">
+    <div class="container">
+      <blockquote class="big-quote reveal" style="max-width: 800px; margin: 0 auto; font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 500; line-height: 1.5;">
+        <p style="margin-bottom: 1rem; font-style: italic;">«La información es el activo más valioso de una organización; centralizarla y automatizarla es el único camino hacia la eficiencia operativa y la toma de decisiones estratégicas»</p>
+        <cite style="display: block; font-size: var(--fs-small); font-family: var(--f-ui); text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-green); font-style: normal; font-weight: 700;">— Fundamento de Ingeniería de Software, Control de Activos TIC</cite>
+      </blockquote>
+    </div>
+  </section>
+
+   <!-- ============ METODOLOGÍA / OBJETIVOS ESPECÍFICOS  ============ -->
+  <section class="section" id="metodologia">
+    <div class="container grid grid-2">
+      
+      <div class="video-text reveal"> <!-- Mantiene las clases de tu contenedor original -->
+        <p class="eyebrow">Ciclo de Vida de Desarrollo</p>
+        <h2>Metodología de Implementación SGAT</h2>
+        <p>
+          El desarrollo del sistema no solo responde a una necesidad técnica, sino que sigue una rigurosa estructura 
+          de ingeniería de software dividida en fases clave de validación científica y tecnológica:
+        </p>
+        
+        <ul style="list-style: none; padding: 0; margin-top: 1.5rem;">
+          <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+            <strong style="color: var(--primary-color, #007bff);">Fase 1: Requerimientos.</strong> Identificación de necesidades operativas mediante entrevistas estructuradas y registros documentales en la empresa.
+          </li>
+          <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+            <strong style="color: var(--primary-color, #007bff);">Fase 2: Diseño Arquitectónico.</strong> Modelado e integración de los módulos administrativos, operativos y comerciales en un entorno digital seguro.
+          </li>
+          <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+            <strong style="color: var(--primary-color, #007bff);">Fase 3: Pruebas y Validación.</strong> Evaluación del desempeño a través de pruebas de usabilidad y rendimiento para medir la optimización real de los procesos.
+          </li>
+        </ul>
+         </div>
+
+       <!-- RECUADRO CON EL VIDEO EXPLICATIVO CORREGIDO -->
+<div class="video-wrapper reveal" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); background: var(--tech-dark-2);">
+  <iframe 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+    src="https://youtube.com" 
+    title="¿Qué es un sistema de gestión y para qué sirve?" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+    </div>
+  </section>
+
+   <!-- ============ ROLES DE USUARIO  ============ -->
+  <section class="section section-alt" id="roles">
+    <div class="container">
+      <p class="eyebrow reveal">Seguridad y Jerarquía</p>
+      <h2 class="reveal">Roles Diferenciados en la Plataforma</h2>
+      <p class="section-intro reveal">El sistema garantiza la integridad de los datos asignando permisos específicos según la responsabilidad del actor.</p>
+
+      <div class="grid grid-3">
+        <div class="card reveal" style="border-top: 4px solid var(--primary-color, #007bff);">
+          <div class="card-icon" style="font-size: 2rem; margin-bottom: 1rem;">🛡️</div>
+          <h3>Administrador</h3>
+          <p>Control total de la configuración del sistema, gestión de usuarios, auditoría de logs de seguridad y reportes globales.</p>
+        </div>
+
+        <div class="card reveal" style="border-top: 4px solid #28a745;">
+          <div class="card-icon" style="font-size: 2rem; margin-bottom: 1rem;">📈</div>
+          <h3>Gerente</h3>
+          <p>Supervisión en tiempo real de ventas, estado financiero de reparaciones, relaciones comerciales con proveedores e indicadores de stock.</p>
+        </div>
+
+        <div class="card reveal" style="border-top: 4px solid #ffc107;">
+          <div class="card-icon" style="font-size: 2rem; margin-bottom: 1rem;">🔧</div>
+          <h3>Técnico Soporte</h3>
+          <p>Registro de diagnóstico de equipos, asignación de insumos de inventario a reparaciones y actualización del estado de las órdenes de trabajo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOBRE LA EMPRESA / CASO DE ESTUDIO  ============ -->
+  <section class="section section-alt" id="luke-computadores" style="padding-bottom: 5rem;">
+    <div class="container text-center reveal" style="max-width: 800px; margin: 0 auto;">
+      <p class="eyebrow">Entorno de Aplicación</p>
+      <h2>LUKE COMPUTADORES como Modelo de Innovación</h2>
+      <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+        Esta microempresa se convierte en el pilar fundamental del proyecto. Al automatizar sus flujos 
+        comerciales y de soporte técnico mediante el <strong>SGAT</strong>, se establece un precedente tecnológico 
+        demostrando cómo las MiPymes de reparación y comercialización de insumos TIC pueden elevar la calidad 
+        de su servicio al cliente, optimizar sus recursos internos y fundamentar decisiones críticas en datos reales.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <span style="background: rgba(0,123,255,0.1); color: var(--primary-color, #007bff); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: bold;">MiPymes TIC</span>
+        <span style="background: rgba(40,167,69,0.1); color: #28a745; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: bold;">Trazabilidad 360°</span>
+        <span style="background: rgba(255,193,7,0.1); color: #b58100; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: bold;">Metodología RUP/Ágil</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACTUALIZACIONES DEL SISTEMA ============ -->
+  <section class="section" id="noticias">
+    <div class="container">
+      <p class="eyebrow reveal">Historial de Desarrollo</p>
+      <h2 class="reveal">Actualizaciones del Sistema SGAT</h2>
+
+      <div class="grid news-grid">
+        <article class="news-item reveal">
+          <time datetime="2026-10-25">25 Oct 2026</time>
+          <h3>Fase de Validación y Usabilidad</h3>
+          <p>Se inician las pruebas de rendimiento y validación operativa en la microempresa LUKE COMPUTADORES para verificar la optimización de los tiempos de respuesta [3.1, 3.2].</p>
+        </article>
+        <article class="news-item reveal">
+          <time datetime="2026-08-12">Desarrollo</time>
+          <h3>Integración de Base de Datos y Roles</h3>
+          <p>Implementación exitosa del control de accesos diferenciados para perfiles de Administrador, Gerente y Técnico, garantizando la seguridad de la información [3.1].</p>
+        </article>
+        <article class="news-item reveal">
+          <time datetime="2026-06-05">Diseño</time>
+          <h3>Modelado de Módulos Core</h3>
+          <p>Culminación del diseño arquitectónico del software, estructurando los módulos funcionales para el registro de clientes, stock de insumos y equipos en reparación [3.1, 3.2].</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-brand">SGAT<span class="nav-dot">.</span></p>
+      <p>Sistema de Gestión de Activos Tecnológicos para LUKE COMPUTADORES.</p>
+    </div>
+    <nav aria-label="Enlaces del pie">
+      <ul class="footer-links">
+        <li><a href="#problematica">Problemática</a></li>
+        <li><a href="#modulos">Módulos</a></li>
+        <li><a href="#roles">Roles de Usuario</a></li>
+      </ul>
+    </nav>
+    <p class="footer-credit">Desarrollado bajo metodología de Ingeniería de Software · Plataforma de control integral MiPyme.</p>
+  </div>
+</footer>
+
+<a href="#inicio" class="to-top" id="toTop" aria-label="Volver arriba">↑</a>
+
+<!-- ============ CHATBOT "ASISTENTE VIRTUAL SGAT" ============ -->
+<button class="chat-fab" id="chatFab" aria-label="Abrir chat de soporte SGAT" aria-expanded="false">
+  <span class="chat-fab-icon">🤖</span>
+</button>
+
+<div class="chat-window" id="chatWindow" hidden>
+  <div class="chat-header">
+    <div>
+      <p class="chat-title">Soporte Técnico SGAT</p>
+      <p class="chat-sub">Asistente virtual de LUKE COMPUTADORES</p>
+    </div>
+    <button class="chat-close" id="chatClose" aria-label="Cerrar chat">×</button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+
+  <div class="chat-chips" id="chatChips"></div>
+
+  <form class="chat-input-row" id="chatForm" autocomplete="off">
+    <input type="text" id="chatInput" placeholder="Consulte sobre módulos, roles o inventario…" aria-label="Escribe tu pregunta">
+    <button type="submit" class="chat-send" aria-label="Enviar">➤</button>
+  </form>
+</div>
+
+<script src="js/main2.js"></script>
+<script src="js/chatbot2.js"></script>
+</body>
+</html>
